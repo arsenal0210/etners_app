@@ -1,0 +1,184 @@
+/* 🌟 전체 페이지 스타일 */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+/* 📦 컨테이너 박스 스타일 */
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 🏷️ 탭 스타일 */
+.tab-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 14px;
+    background: #ddd;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.tab-button.active {
+    background: #3498db;
+    color: white;
+}
+
+/* 🌟 탭 콘텐츠 기본 숨김 */
+.tab-content {
+    display: none;
+}
+
+/* ✅ 활성화된 탭만 표시 */
+.tab-content.active {
+    display: block;
+}
+
+/* 📤 입력 폼 스타일 */
+#deliveryTab label, #specialTab label {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+#deliveryTab input, #deliveryTab select,
+#specialTab input, #specialTab select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* 📜 배송 내역 카드 스타일 */
+.logistics-item {
+    background: #ecf0f1;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    font-size: 16px;
+}
+
+/* 💬 채팅창 스타일 */
+.chat-box {
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    background: #f9f9f9;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* ✨ 채팅 메시지 스타일 */
+.chat-message {
+    position: relative;
+    padding: 10px 14px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+    word-wrap: break-word;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* 📌 핀📌 & 삭제🗑 버튼 (작게 조정 + 우측 상단 배치) */
+.message-actions {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    gap: 5px;
+}
+
+.pin-button, .delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #3498db;
+    padding: 4px;
+}
+
+.delete-button {
+    color: red;
+}
+
+.pin-button:hover {
+    color: #1e70bf;
+}
+
+.delete-button:hover {
+    color: darkred;
+}
+
+/* 📌 고정된 메시지 스타일 */
+#pinnedMessageContainer {
+    display: none;
+    background: #ffeb99;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #f1c40f;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* 🚀 매크로 버튼 스타일 */
+.macro-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px; /* 버튼 간격 조정 */
+    margin-top: 12px;
+}
+
+.macro-button {
+    padding: 10px 16px; /* 버튼 크기 약간 줄임 */
+    font-size: 16px; /* 글씨 크기 조정 */
+    background: #d3d3d3; /* 연한 회색 배경 */
+    color: black;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    width: 46%; /* 버튼 크기 조정 */
+    min-width: 120px;
+    text-align: center;
+}
+
+.macro-button:hover {
+    background: #bcbcbc; /* 호버 시 색상 약간 어둡게 */
+}
+
+/* 📱 모바일 화면에서 버튼 너비 자동 조정 */
+@media screen and (max-width: 600px) {
+    .macro-button {
+        width: 100%; /* 작은 화면에서는 한 줄에 하나씩 */
+    }
+}
