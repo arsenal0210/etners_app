@@ -1,0 +1,104 @@
+<!-- main.html: 배송 및 특이사항 페이지 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사내물류 소통</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <h2>📦 사내물류 소통</h2>
+
+    <!-- 🏷️ 탭 메뉴 -->
+    <div class="tab-container">
+        <button class="tab-button active" onclick="openTab('deliveryTab')">📤 배송 입력</button>
+        <button class="tab-button" onclick="openTab('specialTab')">💬 특이사항 입력</button>
+    </div>
+
+    <div class="container">
+        <!-- 📤 배송 입력 탭 -->
+        <div id="deliveryTab" class="tab-content active">
+            <h3>📤 배송 정보 입력</h3>
+            <label>📅 배송 날짜</label>
+            <input type="date" id="deliveryDate">
+
+            <label>⏰ 배송 시간</label>
+            <input type="time" id="deliveryTime" min="08:00" max="17:00" step="600">
+
+            <label>발신지</label>
+            <select id="sender">
+                <option value="DSR문서실">DSR문서실</option>
+                <option value="화성문서실">화성문서실</option>
+                <option value="기흥문서실">기흥문서실</option>
+                <option value="천안문서실">천안문서실</option>
+                <option value="온양문서실">온양문서실</option>
+            </select>
+
+            <label>수신지</label>
+            <select id="receiver">
+                <option value="온양문서실">온양문서실</option>
+                <option value="천안문서실">천안문서실</option>
+                <option value="기흥문서실">기흥문서실</option>
+                <option value="화성문서실">화성문서실</option>
+                <option value="DSR문서실">DSR문서실</option>
+            </select>
+
+            <label>🚌 버스 번호</label>
+            <select id="busNumber">
+                <option value="충남70바 5589">충남70바 5589</option>
+                <option value="충남72가 7393">충남72가 7393</option>
+                <option value="충남72가 7396">충남72가 7396</option>
+                <option value="충남72가 7397">충남72가 7397</option>
+                <option value="충남72바 9541">충남72바 9541</option>
+                <option value="충남72바 9550">충남72바 9550</option>
+            </select>
+
+            <label>🎒 가방 개수</label>
+            <input type="number" id="bagCount" min="0" value="0">
+
+            <label>📦 박스 개수</label>
+            <input type="number" id="boxCount" min="0" value="0">
+
+            <label>🔄 대차 개수</label>
+            <input type="number" id="dollyCount" min="0" value="0">
+
+            <button onclick="submitLogistics()">📤 배송 등록</button>
+
+            <h3>📜 배송 내역</h3>
+            <div id="logisticsList"></div>
+        </div>
+
+        <!-- 💬 특이사항 입력 탭 -->
+        <div id="specialTab" class="tab-content">
+            <h3>💬 추가 특이사항 입력</h3>
+            <label>👤 닉네임</label>
+            <select id="nickname">
+                <option value="DSR문서실">DSR문서실</option>
+                <option value="화성문서실">화성문서실</option>
+                <option value="기흥문서실">기흥문서실</option>
+                <option value="천안문서실">천안문서실</option>
+                <option value="온양문서실">온양문서실</option>
+            </select>
+
+            <div class="chat-box">
+                <div id="pinnedMessageContainer">
+                    <div id="pinnedMessage"></div>
+                    <button id="unpinButton" onclick="unpinMessage()">❌</button>
+                </div>
+                <div id="chatBox"></div>
+            </div>
+
+            <input type="text" id="chatMessage" placeholder="메시지를 입력하세요">
+            <button onclick="sendMessage()">📩 전송</button>
+
+            <h3>🚀 매크로 메시지 입력</h3>
+            <div class="macro-container">
+                <div class="macro-column" id="macroButtonsLeft"></div>
+                <div class="macro-column" id="macroButtonsRight"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -157,3 +157,29 @@ document.addEventListener("DOMContentLoaded", () => {
     displayMessages(); // 채팅 메시지 불러오기
     createMacroButtons(); // 매크로 버튼 생성
 });
+// 🚀 로그인 후 main.html로 이동
+function checkLogin() {
+    let inputId = document.getElementById("loginId").value;
+    let inputPw = document.getElementById("loginPw").value;
+    let errorMessage = document.getElementById("loginError");
+
+    if (inputId === "이트너스" && inputPw === "1001") {
+        // 로그인 성공 시 localStorage에 상태 저장
+        localStorage.setItem("isLoggedIn", "true");
+        window.location.href = "main.html"; // main.html로 이동
+    } else {
+        errorMessage.textContent = "❌ 아이디 또는 비밀번호가 잘못되었습니다!";
+        errorMessage.style.color = "red";
+    }
+}
+// ✅ main.html 접근 시 로그인 여부 확인
+document.addEventListener("DOMContentLoaded", function () {
+    if (window.location.pathname.includes("main.html")) {
+        let isLoggedIn = localStorage.getItem("isLoggedIn");
+        if (!isLoggedIn) {
+            alert("로그인이 필요합니다.");
+            window.location.href = "index.html"; // 로그인 페이지로 이동
+        }
+    }
+});
+
